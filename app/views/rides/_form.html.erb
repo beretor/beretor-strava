@@ -1,0 +1,52 @@
+<%= form_with(model: ride) do |form| %>
+  <% if ride.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ride.errors.count, "error") %> prohibited this ride from being saved:</h2>
+
+      <ul>
+        <% ride.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :rider, style: "display: block" %>
+    <%= form.text_field :rider %>
+  </div>
+
+  <div>
+    <%= form.label :mileage, style: "display: block" %>
+    <%= form.number_field :mileage %>
+  </div>
+
+  <div>
+    <%= form.label :elevation, style: "display: block" %>
+    <%= form.number_field :elevation %>
+  </div>
+
+  <div>
+    <%= form.label :bike, style: "display: block" %>
+    <%= form.number_field :bike %>
+  </div>
+
+  <div>
+    <%= form.label :comments, style: "display: block" %>
+    <%= form.text_area :comments %>
+  </div>
+
+  <div>
+    <%= form.label :ride_date, style: "display: block" %>
+    <%= form.datetime_field :ride_date %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
